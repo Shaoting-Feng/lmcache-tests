@@ -82,7 +82,7 @@ def simple_test(model = "mistralai/Mistral-7B-Instruct-v0.2") -> pd.DataFrame:
     config = CreateSingleLocalBootstrapConfig(8002, 0, model, "configs/lmcache_local_cpu.yaml")
     ModelConfig(model, config)
     lengths = [8192]
-    experiments = [CreateDummyExperiment(5, length ) for length in lengths]
+    experiments = [CreateDummyExperiment(3, length ) for length in lengths]
     test_case = TestCase(
             experiments = experiments,
             engines = [config])
