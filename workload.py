@@ -60,7 +60,7 @@ class DumbWorkloadGenerator(WorkloadGenerator):
             timestamp = i / self.config.qps + self.config.offset
             ret.append(Request(
                 timestamp=timestamp,
-                context=self.generate_context(),
+                context=f"{i}" + self.generate_context(),
                 question=self.generate_question(i)
             ))
 
