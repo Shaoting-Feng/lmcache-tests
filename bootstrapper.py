@@ -228,11 +228,11 @@ class LocalVllmBootstrapper(Bootstrapper):
             os.environ["VLLM_WORKER_MULTIPROC_METHOD"]="spawn"
             os.environ["LMCACHE_CONFIG_FILE"]=self.config.lmcache_config.config_path
             ktc = '{"kv_connector":"LMCacheConnectorV1", "kv_role":"kv_both", "kv_connector_extra_config": {"lmcache_rpc_port": "7"}}'
-            print(f"\033[32mLaunching Engine with Command :\033[0m LMCACHE_CONFIG_FILE={self.config.lmcache_config.config_path} vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --kv-transfer-config \'{ktc}\'")
-            return f"vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --kv-transfer-config \'{ktc}\'"
+            print(f"\033[32mLaunching Engine with Command :\033[0m LMCACHE_CONFIG_FILE={self.config.lmcache_config.config_path} vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --no-enable-prefix-caching --kv-transfer-config \'{ktc}\'")
+            return f"vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --no-enable-prefix-caching --kv-transfer-config \'{ktc}\'"
         else:
-            print(f"\033[32mLaunching Engine with Command :\033[0m vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args}")
-            return f"vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args}"
+            print(f"\033[32mLaunching Engine with Command :\033[0m vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --no-enable-prefix-caching")
+            return f"vllm serve {self.config.vllm_config.cmdargs()} {self.config.vllm_optional_config.cmdargs()} {extra_args} --no-enable-prefix-caching"
 
     def start(self):
         self.lmcache_server_handler.start()
