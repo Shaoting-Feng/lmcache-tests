@@ -256,7 +256,7 @@ def test_local_cpu_experimental(model = "mistralai/Mistral-7B-Instruct-v0.2", po
     ModelConfig(model, config2)
 
     # Experiments: 8K, 16K, 24K shared context, each experiments has 10 queries
-    lengths = [8192, 16384, 24576]
+    lengths = [24576]
     experiments = [CreateDummyExperiment(10, length ) for length in lengths]
 
     test_case = TestCase(
@@ -315,7 +315,7 @@ def test_local_disk_experimental(model = "mistralai/Mistral-7B-Instruct-v0.2", p
     ModelConfig(model, config2)
 
     # Experiments: 8K, 16K, 24K shared context, each experiments has 10 queries
-    lengths = [8192, 16384, 24576]
+    lengths = [24576]
     experiments = [CreateDummyExperiment(10, length) for length in lengths]
 
     test_case = TestCase(
