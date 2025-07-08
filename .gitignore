@@ -8,6 +8,3 @@ temp_results/
 
 # vim temporary files
 .*.sw*
-
-# test outputs
-outputs/
