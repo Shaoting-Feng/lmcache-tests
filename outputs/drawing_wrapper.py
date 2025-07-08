@@ -4,7 +4,7 @@ import glob
 import importlib.util
 import os
 
-base_dir = os.path.abspath("../../lmcache-tests/outputs")
+base_dir = os.path.abspath("/home/shaotingf/lmcache-tests/outputs")
 process_result_path = os.path.join(base_dir, "process_result.py")
 
 spec = importlib.util.spec_from_file_location("process_result", process_result_path)
