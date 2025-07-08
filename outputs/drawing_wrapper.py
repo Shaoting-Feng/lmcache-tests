@@ -35,4 +35,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Specify the directory where the CSV files are located
-    process_all_csv_in_directory(args.output)
+    process_all_csv_in_directory("outputs/")
