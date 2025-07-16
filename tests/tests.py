@@ -23,7 +23,7 @@ def CreateSingleLocalBootstrapConfig(
         vllm_config = VLLMConfig(
             port = port,
             model = model,
-            gpu_memory_utilization = 0.8,
+            gpu_memory_utilization = 0.5,
             tensor_parallel_size = 1),
         vllm_optional_config = VLLMOptionalConfig(),
         lmcache_config = LMCacheConfig(lmcache_config_path),
